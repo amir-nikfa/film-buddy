@@ -26,6 +26,7 @@
     "parse": "^6.1.1"
   },
   "devDependencies": {
+    "@capacitor/assets": "^3.0.5",
     "@capacitor/cli": "^7.4.2",
     "sass": "^1.89.2",
     "vite": "^7.0.6",
