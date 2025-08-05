@@ -1,7 +1,7 @@
 
 import { templates } from "../../../ui/dom";
 import { cloneTemplate, qs } from "../../../utils/dom";
-import { fillMovieCard } from "../addMovie/render";
+import { fillMovieCard } from "../add/render";
 
 const hasMovieCard = (container) => {
 	const movieCards = container.querySelectorAll(".movie-card");

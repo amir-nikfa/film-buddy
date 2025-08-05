@@ -4,7 +4,7 @@ import { addAlertModal } from "../../../ui/alertModal";
 import { UI } from "../../../ui/dom";
 import { qs } from "../../../utils/dom";
 import { isOffline } from "../../../utils/utils";
-import { updateLists } from "../addMovie/store";
+import { updateLists } from "../add/store";
 import { resetMovies } from "../local/clearLocalMovies";
 import { getList } from "./model";
 import { renderMovieCard } from "./view";

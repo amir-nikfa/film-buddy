@@ -4,7 +4,7 @@ import { addAlertModal } from "../../../ui/alertModal.js";
 import { debouncedAddId, debouncedRemoveId } from "../../../core/listsApi.js";
 import { toggleNoMovieCard, updateWatchStatusButton } from "./view.js";
 import { UI } from "../../../ui/dom.js";
-import { removeFromWatched, removeFromWatchlist } from "../addMovie/store.js";
+import { removeFromWatched, removeFromWatchlist } from "../add/store.js";
 
 export async function handleDelete(event) {
 	const { btn, movieCard, id, listSection, listName } = getListContext(event);

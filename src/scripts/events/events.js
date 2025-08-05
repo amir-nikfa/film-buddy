@@ -1,5 +1,5 @@
 import { authHandler } from "../features/auth/authHandler";
-import { addMovieHandler } from "../features/movies/addMovie";
+import { addMovieHandler } from "../features/movies/add";
 import { refreshCardsHandler } from "../features/movies/list/controller";
 import { changeListHandler } from "../features/movies/list/events";
 import { searchLocalHandler } from "../features/movies/local/events";

@@ -2,9 +2,9 @@ import { getMovieDetails } from "../../../core/api/movieApi";
 import { getErrorMessage } from "../../../core/session/messageFormatter";
 import { templates, UI } from "../../../ui/dom";
 import { cloneTemplate } from "../../../utils/dom";
-import { fillMovieSearchItem } from "../addMovie/render";
-import { movieStore } from "../addMovie/store";
-import { changeSearchStatus } from "../addMovie/ui";
+import { fillMovieSearchItem } from "../add/render";
+import { movieStore } from "../add/store";
+import { changeSearchStatus } from "../add/ui";
 import { searchResultClickHandler } from "./events";
 
 export const addSearchResults = async (results, context = "") => {

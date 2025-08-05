@@ -1,7 +1,7 @@
 import { templates, UI } from "../../../ui/dom";
 import { cloneTemplate, qs } from "../../../utils/dom";
-import { fillMovieCard } from "../addMovie/render";
-import { removeNoCardEl } from "../addMovie/ui";
+import { fillMovieCard } from "../add/render";
+import { removeNoCardEl } from "../add/ui";
 import { toggleNoMovieCard } from "../list/view";
 
 export function renderAddedMovieCard(movie) {

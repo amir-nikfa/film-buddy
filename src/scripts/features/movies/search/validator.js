@@ -1,7 +1,7 @@
 import { OFFLINE_ERROR_MESSAGE } from "../../../core/session/messageFormatter";
 import { addAlertModal } from "../../../ui/alertModal";
 import { isOffline } from "../../../utils/utils";
-import { isInWatched, isInWatchlist } from "../addMovie/store";
+import { isInWatched, isInWatchlist } from "../add/store";
 
 export function validateCanAdd(movie) {
 	if (isInWatched(movie.id)) {

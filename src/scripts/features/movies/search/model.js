@@ -1,5 +1,5 @@
 import { debouncedAddId } from "../../../core/listsApi";
-import { addToWatchlist } from "../addMovie/store";
+import { addToWatchlist } from "../add/store";
 
 export async function addMovieToWatchlist(movie) {
 	// returns { success: true } or throws
