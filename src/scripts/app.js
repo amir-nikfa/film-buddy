@@ -6,7 +6,6 @@ import { setupEvents } from "./events/events.js";
 import { renderList } from "./features/movies/list/controller.js";
 import { addAlertModal } from "./ui/alertModal.js";
 import { toggleAuthItem } from "./ui/menu.js";
-import { isAnyModalOpen } from "./ui/modal.js";
 import { setSavedTheme } from "./ui/theme.js";
 
 const initApp = async () => {
@@ -25,10 +24,6 @@ const initApp = async () => {
 		addAlertModal("Loading movies list...")
 		renderList();
 	}
-
-	setTimeout(() => {
-		console.log(isAnyModalOpen());
-	}, 2000);
 };
 
 initApp();
