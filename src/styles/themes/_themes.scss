@@ -1,0 +1,137 @@
+@use "sass:map";
+
+// Define base color map
+$base-colors: (
+	"white": #fff,
+	"black": #000,
+	"grey": #aaa,
+	"grey-light": #f5f5f5,
+	"grey-medium": #555,
+	"grey-dark": #121212,
+	"grey-soft": #ddd,
+
+	"green": #43a047,
+
+	"blue": #2196f3,
+	"blue-dark": #1769aa,
+	"blue-alt": #1e88e5,
+	"blue-alt-1": #64b5f6,
+	"blue-alt-2": #42a5f5,
+	"blue-hover": #1565c0,
+
+	"red": #e53935,
+	"red-dark": #ab000d,
+	"red-alt": #d32f2f,
+	"red-hover": #9a0007,
+
+	"theme-icon": #f39c12,
+	"item-hover": rgba(255, 255, 255, 0.1),
+
+	"gradient-light-start": #6ec1e4,
+	"gradient-light-mid": #87d6f9,
+	"gradient-light-end": #d0eaff,
+
+	"gradient-dark-start": #1f3b73,
+	"gradient-dark-mid": #274b8e,
+	"gradient-dark-end": #121212,
+);
+
+// Output to :root using @each
+:root {
+	@each $name, $value in $base-colors {
+		--#{$name}: #{$value};
+	}
+}
+
+/* Light Theme */
+body.light {
+	--no-card-shadow: var(--gradient-light-start) 0px 5px 15px 0px;
+	--poster-bg: linear-gradient(
+		160deg,
+		var(--gradient-light-start),
+		var(--gradient-light-mid),
+		var(--gradient-light-end)
+	);
+
+	--poster-border: #ddd;
+
+	--bg-color: var(--grey-light);
+	--text-color: #222;
+
+	--header-bg: linear-gradient(to left, var(--blue-alt-1), var(--blue));
+	--header-text: var(--white);
+
+	--menu-bg: var(--blue);
+
+	--card-bg: var(--white);
+	--card-shadow: rgba(0, 0, 0, 0.1);
+
+	--theme-toggler: var(--white);
+	--ball-icon-bg: var(--black);
+
+	--btn-bg: var(--blue);
+	--btn-hover-bg: var(--blue-dark);
+	--btn-remove-bg: var(--red);
+	--btn-remove-hover-bg: var(--red-dark);
+
+	--modal-bg: var(--white);
+	--modal-overlay-bg: rgba(0, 0, 0, 0.5);
+
+	--search-result-bg: #f9f9f9;
+	--search-result-hover-bg: #e3f2fd;
+
+	--footer-bg: var(--white);
+	--footer-text: var(--grey-medium);
+	--footer-active-text: var(--blue);
+
+	--tab-bg: var(--white);
+	--tab-active-bg: var(--blue);
+	--tab-active-color: var(--white);
+}
+
+/* Dark Theme */
+body.dark {
+	--no-card-shadow: var(--gradient-dark-start) 0px 5px 15px 0px;
+
+	--poster-bg: linear-gradient(
+		160deg,
+		var(--gradient-dark-start),
+		var(--gradient-dark-mid),
+		var(--gradient-dark-end)
+	);
+
+	--poster-border: #3d3d3d;
+
+	--bg-color: var(--grey-dark);
+	--text-color: #e0e0e0;
+
+	--header-bg: linear-gradient(to left, var(--blue-alt-2), var(--blue-hover));
+	--header-text: var(--white);
+
+	--menu-bg: var(--blue-hover);
+
+	--card-bg: #1e1e1e;
+	--card-shadow: rgba(255, 255, 255, 0.1);
+
+	--theme-toggler: var(--black);
+	--ball-icon-bg: var(--white);
+
+	--btn-bg: var(--blue-alt);
+	--btn-hover-bg: var(--blue-hover);
+	--btn-remove-bg: var(--red-alt);
+	--btn-remove-hover-bg: var(--red-hover);
+
+	--modal-bg: #1e1e1e;
+	--modal-overlay-bg: rgba(0, 0, 0, 0.8);
+
+	--search-result-bg: #2a2a2a;
+	--search-result-hover-bg: var(--blue-hover);
+
+	--footer-bg: #1e1e1e;
+	--footer-text: #aaa;
+	--footer-active-text: var(--blue-alt);
+
+	--tab-bg: #2a2a2a;
+	--tab-active-bg: var(--blue-alt);
+	--tab-active-color: var(--white);
+}

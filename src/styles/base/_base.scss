@@ -1,0 +1,55 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	border: 0;
+}
+
+html {
+	height: 100%;
+}
+
+body {
+	height: 100%;
+	background-color: var(--bg-color);
+	color: var(--text-color);
+}
+
+.main {
+	overflow-y: scroll;
+}
+
+.container {
+	height: 100%;
+}
+
+ul {
+	list-style: none;
+}
+
+button {
+	cursor: pointer;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+	cursor: pointer;
+}
+
+img {
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.hidden {
+	display: none !important;
+}
+
+.error {
+	color: var(--red);
+}
+
+.success {
+	color: var(--green);
+}

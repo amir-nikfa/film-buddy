@@ -1,0 +1,55 @@
+@font-face {
+	font-family: "Outfit";
+	src: url("../../assets/fonts/Outfit-Regular.ttf") format("truetype");
+
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: "Outfit";
+	src: url("../../assets/fonts/Outfit-Bold.ttf") format("truetype");
+
+	font-weight: bold;
+}
+
+@font-face {
+	font-family: "DM Sans";
+	src: url("../../assets/fonts/DMSans-Regular.ttf") format("truetype");
+
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: "DM Sans";
+	src: url("../../assets/fonts/DMSans-Bold.ttf") format("truetype");
+
+	font-weight: bold;
+}
+
+body {
+	font-family: "DM Sans", sans-serif;
+	font-weight: normal;
+}
+
+.main-header,
+.main-nav {
+	font-family: "Outfit", sans-serif;
+	font-weight: bold;
+}
+
+.main-nav {
+	&__item {
+		font-family: inherit;
+		font-weight: inherit;
+		font-size: 1rem;
+	}
+}
+
+h2 {
+	font-family: "Outfit", sans-serif;
+	font-weight: bold;
+}
+
+input {
+	font-family: "Dm Sans", sans-serif;
+}

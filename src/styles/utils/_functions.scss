@@ -1,0 +1,6 @@
+@use "sass:map";
+@use "../themes/themes" as *;
+
+@function getBaseColor($color-name) {
+	@return map.get($base-colors, $color-name);
+}

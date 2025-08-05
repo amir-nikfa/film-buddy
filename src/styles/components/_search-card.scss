@@ -1,0 +1,62 @@
+@use "../utils/mixins";
+
+.searching {
+	margin-top: 1rem;
+}
+
+.search-results {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	margin-top: 1rem;
+	max-height: 60vh;
+	overflow-y: scroll;
+}
+
+.search-result {
+	display: flex;
+	background-color: var(--search-result-bg);
+	color: var(--text-color);
+	padding: 0.5rem;
+	border-radius: 5px;
+	gap: 0.75rem;
+
+	&__poster-wrapper {
+		@include mixins.flex-center();
+	}
+
+	&__poster {
+		width: 100px;
+		height: 150px;
+		object-fit: cover;
+		vertical-align: bottom;
+	}
+
+	&__info {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		gap: 0.5rem;
+		overflow: hidden;
+	}
+
+	&__title {
+		font-size: 1rem;
+	}
+
+	&__type,
+	&__year,
+	&__rating {
+		font-size: 0.8rem;
+	}
+
+	&__rating {
+		color: var(--theme-icon);
+	}
+
+	&__plot {
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		overflow: hidden;
+	}
+}

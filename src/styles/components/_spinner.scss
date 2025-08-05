@@ -1,0 +1,26 @@
+@use '../utils/functions' as *;
+@use "../themes/themes" as *;
+
+.spinner-wrapper {
+	display: flex !important;
+	justify-content: center !important;
+	align-items: center !important;
+}
+
+.spinner {
+	border: 3px solid getBaseColor("grey-soft");
+	border-top-color: getBaseColor("white");
+	width: auto;
+	height: 25px;
+	max-height: 100%;
+	aspect-ratio: 1 / 1;
+	border-radius: 50%;
+	animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+	100% {
+		transform: rotate(360deg);
+	}
+}
+

@@ -1,0 +1,31 @@
+.tooltip {
+	position: absolute;
+	margin-top: .2rem;
+	background-color: var(--modal-bg);
+	border: 1px solid var(--grey);
+	padding: .75rem;
+	max-width: 80%;
+	border-radius: 10px;
+	font-size: .8rem;
+	color: var(--grey-medium);
+	opacity: .9;
+	left: 0;
+
+	&--on-top {
+		bottom: 110%;
+	}
+
+	&--on-bottom {
+		top: 110%;
+	}
+}
+
+.condition {
+	&--valid {
+		color: var(--green);
+	}
+
+	&--invalid {
+		color: var(--red);
+	}
+}

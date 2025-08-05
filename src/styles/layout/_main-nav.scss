@@ -1,0 +1,45 @@
+@use "../utils/mixins";
+
+.main-nav {
+	@include mixins.flex-space-between();
+	@include mixins.position-relative();
+	background-color: var(--footer-bg);
+	box-shadow: 0 -2px 8px var(--card-shadow);
+	padding: 0.5rem 0;
+	padding-bottom: calc(0.5rem + constant(safe-area-inset-bottom));
+	padding-bottom: calc(0.5rem + env(safe-area-inset-bottom, 0px));
+
+	&__line {
+		box-shadow: 0 0 1px var(--footer-active-text);
+		position: absolute;
+		top: 0.5rem;
+		left: 0;
+		width: 50%;
+		height: 2px;
+		background-color: var(--footer-active-text);
+		transition: left 0.3s linear; // Prefer specific transition
+	}
+
+	&__item {
+		padding: 0.5rem;
+		width: 50%;
+		background: none;
+		position: relative;
+		top: 0;
+		left: 0;
+		color: var(--footer-text);
+		transition: color 0.3s ease;
+
+		&--active {
+			color: var(--footer-active-text);
+		}
+
+		&--active:nth-child(1) ~ .main-nav__line {
+			left: 0;
+		}
+
+		&--active:nth-child(2) ~ .main-nav__line {
+			left: 50%;
+		}
+	}
+}

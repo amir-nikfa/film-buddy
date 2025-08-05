@@ -1,0 +1,47 @@
+@use "../utils/mixins";
+
+.theme-toggler {
+	@include mixins.flex-center();
+
+	&__input {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		opacity: 0;
+	}
+
+	&__label {
+		@include mixins.flex-space-between();
+		position: relative;
+		top: 0;
+		left: 0;
+		width: 55px;
+		height: 26px;
+		background-color: var(--theme-toggler);
+		border-radius: 50px;
+		padding: 5px;
+	}
+
+	&__ball {
+		position: absolute;
+		top: 2px;
+		left: 2px;
+		width: 22px;
+		height: 22px;
+		border-radius: 50%;
+		background-color: var(--ball-icon-bg);
+		transition: all 0.2s linear;
+	}
+
+	&__input:checked + &__label > &__ball {
+		transform: translateX(29px);
+	}
+
+	.fa-moon,
+	.fa-sun {
+		color: var(--theme-icon);
+		font-size: 16px;
+	}
+}

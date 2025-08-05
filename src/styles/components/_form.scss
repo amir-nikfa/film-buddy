@@ -1,0 +1,43 @@
+@use "../utils/mixins";
+
+.auth-form {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	padding: 1rem;
+	background-color: var(--modal-bg);
+	color: var(--text-color);
+	border-radius: 10px;
+	gap: 1rem;
+    width: 100%;
+    max-width: 400px;
+	
+	&__input-wrapper {
+		@include mixins.position-relative();
+	}
+	
+	&__username {
+		margin-bottom: 0.5rem;
+	}
+
+	&__auth-message {
+		font-size: .9rem;
+		color: var(--green);
+
+		&--failed {
+			color: var(--red);
+		}
+	}
+
+	&__submit {
+		border-radius: 10px;
+	}
+
+	&__toggle {
+		color: var(--blue);
+	}
+
+	&__toggler {
+		text-decoration: underline;
+	}
+}

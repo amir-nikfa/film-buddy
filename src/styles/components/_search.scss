@@ -1,0 +1,20 @@
+@use "../utils/mixins";
+
+.search {
+	@include mixins.position-relative();
+
+	&__input {
+		padding: 0.6rem;
+		padding-left: 2.6rem;
+	}
+
+	.fa-magnifying-glass {
+		@include mixins.flex-center();
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 2.375rem;
+		height: 100%;
+		color: var(--grey);
+	}
+}

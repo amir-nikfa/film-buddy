@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+		<link rel="stylesheet" href="./assets/fontawesome/css/all.min.css" />
+		<script src="./scripts/app.js" type="module" defer></script>
+		<title>Film Buddy</title>
+	</head>
+	<body class="light">
+		<template id="search-movie-template">
+			<div class="search">
+				<i class="fa-solid fa-magnifying-glass"></i>
+				<input
+					id="add-movie-search-input"
+					class="input search__input"
+					placeholder="Search movies..."
+					type="search"
+				/>
+			</div>
+		</template>
+		<template id="search-list-template">
+			<ul id="search-results" class="search-results"></ul>
+		</template>
+		<!-- search-item-template -->
+		<template id="search-item-template">
+			<li class="search-result">
+				<div class="search-result__poster-wrapper">
+					<img
+						data-field="poster"
+						class="search-result__poster"
+						alt="Movie poster"
+					/>
+				</div>
+				<div class="search-result__info">
+					<h3 data-field="title" class="search-result__title"></h3>
+					<span data-field="type" class="search-result__type"></span>
+					<span data-field="year" class="search-result__year"></span>
+					<div class="search-result__rating">
+						<i class="fa-solid fa-star"></i>
+						<span
+							data-field="rate"
+							class="search-result__rate"
+						></span>
+						/ 10
+					</div>
+					<p class="search-result__plot" data-field="plot"></p>
+				</div>
+			</li>
+		</template>
+
+		<!-- movie-card-template -->
+		<template id="movie-card-template">
+			<li class="movie-card">
+				<div class="movie-card__poster-container">
+					<div class="movie-card__poster-wrapper">
+						<img
+							data-field="poster"
+							class="movie-card__poster"
+							alt="Movie poster"
+						/>
+					</div>
+				</div>
+				<div class="movie-card__info">
+					<h3 data-field="title" class="movie-card__title"></h3>
+					<span data-field="type" class="movie-card__type"></span>
+					<span data-field="year" class="movie-card__year"></span>
+					<div class="movie-card__rating">
+						<i class="fa-solid fa-star"></i>
+						<span data-field="rate" class="movie-card__rate"></span>
+						/ 10
+					</div>
+					<p data-field="plot" class="movie-card__plot"></p>
+				</div>
+				<div class="movie-card__actions">
+					<button data-type="watch-status" class="btn movie-card__watched">
+						<i class="fa-solid fa-eye"></i>
+						<i class="hidden fa-solid fa-eye-slash"></i>
+						<span class="btn-content">Watched</span>
+					</button>
+					<button class="btn btn--remove movie-card__remove">
+						<i class="fa-solid fa-trash"></i>
+						<span class="btn-content">Remove</span>
+					</button>
+				</div>
+			</li>
+		</template>
+		<template id="alert-modal-template">
+			<div class="alert-modal">
+				<p class="alert-modal__message"></p>
+			</div>
+		</template>
+		<div class="overlay modal-wrapper">
+			<div class="modal">
+				<div class="modal__header">
+					<h2 id="modal-title" class="modal__title"></h2>
+					<i id="modal-close" class="fa-solid fa-x"></i>
+				</div>
+				<div class="modal__content"></div>
+			</div>
+		</div>
+		<template id="auth-form-template">
+			<form class="auth-form" data-type="login">
+				<h2 class="auth-form__title">Login!</h2>
+				<div class="auth-form__inputs">
+					<div class="auth-form__input-wrapper">
+						<input
+							id="username-input"
+							class="input auth-form__username"
+							placeholder="Username"
+							type="text"
+						/>
+						<div
+							class="hidden tooltip tooltip--on-top"
+							id="username-tooltip"
+						>
+							<p class="condition" data-check="username-start">
+								• Start with a letter
+							</p>
+							<p class="condition" data-check="username-letters">
+								• Contain only letters, numbers, or underscores
+							</p>
+							<p class="condition" data-check="username-valid">
+								• No spaces or special characters
+							</p>
+							<p class="condition" data-check="username-length">
+								• Be 5–20 characters long
+							</p>
+						</div>
+					</div>
+					<div class="auth-form__input-wrapper">
+						<input
+							id="password-input"
+							class="input auth-form__password"
+							placeholder="Password"
+							type="password"
+						/>
+						<div
+							class="hidden tooltip tooltip--on-bottom"
+							id="password-tooltip"
+						>
+							<p class="condition" data-check="password-length">
+								• At least 8 characters
+							</p>
+							<p class="condition" data-check="password-upper">
+								• At least one uppercase letter
+							</p>
+							<p class="condition" data-check="password-lower">
+								• At least one lowercase letter
+							</p>
+							<p class="condition" data-check="password-number">
+								• At least one number
+							</p>
+							<p class="condition" data-check="password-special">
+								• At least one special character (!@#$...)
+							</p>
+						</div>
+					</div>
+				</div>
+				<p class="auth-form__auth-message hidden"></p>
+				<button
+					disabled
+					data-action="submit"
+					class="btn auth-form__submit"
+					type="submit"
+				>
+					<span>
+						Login
+					</span>
+				</button>
+				<p class="auth-form__toggle">
+					<span class="auth-form__message"
+						>Don't have an account?</span
+					>
+					<a data-action="toggle" class="auth-form__toggler">Sign up</a>
+				</p>
+			</form>
+		</template>
+		<div class="container">
+			<header class="main-header">
+				<h2>Film Buddy</h2>
+				<nav class="menu">
+					<div class="menu-toggler">
+						<input
+							class="menu-toggler__input"
+							id="menu-toggler-input"
+							type="checkbox"
+						/>
+						<label
+							for="menu-toggler-input"
+							class="menu-toggler__line"
+						></label>
+						<ul class="menu-list">
+							<li data-menu-item="auth" class="menu-item">
+								<div class="menu-item__user-container">
+									<a class="menu-item__user-sign" href="#"
+										>Login</a
+									>
+									<span class="menu-item__username-open">
+									</span>
+									<span
+										id="menu-username"
+										class="menu-item__username"
+									></span>
+									<span
+										class="menu-item__username-close"
+									></span>
+								</div>
+								<i
+									class="sign-in fa-solid fa-right-to-bracket"
+								></i>
+								<i
+									class="sign-out hidden fa-solid fa-right-from-bracket"
+								></i>
+							</li>
+
+							<li data-menu-item="theme" class="menu-item">
+								<div class="menu-item__theme">
+									<span class="menu-item__mode">Light Mode</span>
+									<div class="theme-toggler">
+										<input
+											class="theme-toggler__input"
+											id="toggler-input"
+											type="checkbox"
+										/>
+										<label
+											class="theme-toggler__label"
+											for="toggler-input"
+										>
+											<i class="fa-solid fa-moon"></i>
+											<i class="fas fa-sun"></i>
+											<span
+												class="theme-toggler__ball"
+											></span>
+										</label>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</nav>
+			</header>
+			<main class="main">
+				<section id="watchlist" class="watchlist">
+					<div class="search">
+						<i class="fa-solid fa-magnifying-glass"></i>
+						<input
+						data-type="watchlist-search"
+							id="watchlist-search-input"
+							class="input search__input"
+							placeholder="Search watchlist movies..."
+							type="search"
+						/>
+					</div>
+					<ul class="movie-cards">
+						<li class="no-movie-cards">
+							<p class="no-movie-cards__content">
+								Watchlist is Empty.
+							</p>
+							<i class="no-movie-cards__refresh fa-solid fa-rotate"></i>
+						</li>
+					</ul>
+				</section>
+				<section id="watched" class="watched hidden">
+					<div class="search">
+						<i class="fa-solid fa-magnifying-glass"></i>
+						<input
+							data-type="watched-search"
+							id="watched-search-input"
+							class="input search__input"
+							placeholder="Search watched movies..."
+							type="search"
+						/>
+					</div>
+					<ul class="movie-cards">
+						<li class="no-movie-cards">
+							<p class="no-movie-cards__content">
+								Watched list is Empty.
+							</p>
+							<i class="no-movie-cards__refresh fa-solid fa-rotate"></i>
+						</li>
+					</ul>
+				</section>
+			</main>
+			<nav class="main-nav">
+				<button
+					data-type="watchlist"
+					id="watchlist-btn"
+					class="main-nav__item main-nav__item--active"
+				>
+					Watchlist
+				</button>
+				<button data-type="watched" id="watched-btn" class="main-nav__item">Watched</button>
+				<div class="main-nav__line"></div>
+			</nav>
+			<div class="add-btn-wrapper">
+				<button id="add-btn" class="add-btn">
+					<i class="fa-solid fa-plus"></i>
+				</button>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,89 @@
+@use "../utils/mixins";
+
+.movie-card {
+	border-radius: 10px;
+	overflow: hidden;
+	box-shadow: 0 4px 8px var(--card-shadow);
+	background-color: var(--card-bg);
+	margin-top: 1rem;
+	transition: box-shadow 0.3s ease;
+
+	&:hover {
+		box-shadow: 0 8px 16px var(--card-shadow);
+	}
+
+	&__poster-container {
+		@include mixins.flex-center();
+		background: var(--poster-bg);
+		overflow: hidden;
+		border-bottom: 1px solid var(--poster-border);
+		padding: 0.5rem;
+	}
+
+	&__poster {
+		height: 260px;
+		object-fit: contain;
+		transition: transform 0.3s ease;
+		vertical-align: bottom;
+	}
+
+	&:hover &__poster {
+		transform: scale(1.03);
+	}
+
+	&__info {
+		padding: 1rem;
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+
+	&__title {
+		font-size: 1.1rem;
+	}
+
+	&__year {
+		font-weight: bold;
+		font-size: 0.9rem;
+	}
+
+	&__year,
+	&__plot {
+		color: var(--footer-text);
+	}
+
+	&__actions {
+		@include mixins.flex-space-between();
+		gap: 1rem;
+		padding: 0.75rem 1rem;
+	}
+
+	&__rating {
+		color: var(--theme-icon);
+	}
+
+	&__watched,
+	&__remove {
+		font-size: 0.9rem;
+		flex-grow: 1;
+		padding: 0;
+		height: 35px;
+		width: 50%;
+	}
+}
+
+.no-movie-cards {
+	@include mixins.flex-space-between();
+	background: var(--poster-bg);
+	color: var(--white);
+	width: 100%;
+	padding: 1.7rem 1rem;
+	margin-top: 1.5rem;
+	border-radius: 10px;
+	color: var(--text-color);
+	box-shadow: var(--no-card-shadow);
+
+	&__refresh--active {
+		animation: spin 1s linear infinite;
+	}
+}
